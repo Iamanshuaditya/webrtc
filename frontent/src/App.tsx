@@ -1,12 +1,15 @@
-  
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./components/Landing";
+ 
 
 function App() {
- 
+
   return (
-    <>
-      Hello world
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
