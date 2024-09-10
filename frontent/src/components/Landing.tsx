@@ -11,7 +11,7 @@ const App: React.FC = () => {
     const remoteVideoRefs = useRef<{ [id: string]: HTMLVideoElement }>({});
     const localStream = useRef<MediaStream | null>(null);
     const peers = useRef<{ [id: string]: RTCPeerConnection }>({});
-    const [createdRoomId, setCreatedRoomId] = useState(''); // Add this line
+    const [createdRoomId, setCreatedRoomId] = useState(''); 
 
     useEffect(() => {
         socket.on('user-joined', (userId: string) => {
@@ -71,17 +71,17 @@ const App: React.FC = () => {
         };
 
         peerConnection.ontrack = (event) => {
-            console.log('Track received:', event); // Log the received track
+            console.log('Track received:', event);
             if (!remoteVideoRefs.current[userId]) {
                 const videoElement = document.createElement('video');
                 videoElement.autoplay = true;
-                videoElement.style.width = '100%'; // Ensure the video is visible
-                videoElement.style.height = 'auto'; // Maintain aspect ratio
-                videoElement.style.borderRadius = '8px'; // Add rounded corners
-                videoElement.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.5)'; // Add shadow for depth
-                videoElement.style.margin = '10px'; // Add margin for spacing
-                videoElement.style.flex = '1'; // Allow video to grow and shrink equally
-                videoElement.style.maxWidth = '45%'; // Set a maximum width for each video
+                videoElement.style.width = '100%'; 
+                videoElement.style.height = 'auto'; 
+                videoElement.style.borderRadius = '8px'; 
+                videoElement.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.5)'; 
+                videoElement.style.margin = '10px'; 
+                videoElement.style.flex = '1';
+                videoElement.style.maxWidth = '45%'; 
                 remoteVideoRefs.current[userId] = videoElement;
                 document.getElementById('remote-videos')?.append(videoElement);
             }
@@ -116,7 +116,7 @@ const App: React.FC = () => {
 
     return (
         <div>
-            {inRoom && <div>Welcome to the room!</div>} {/* Conditionally render based on inRoom */}
+            {inRoom && <div>Welcome to the room!</div>}
             <div>
                 <input 
                     type="text" 
